@@ -18,7 +18,14 @@ export class AppController {
     return 'con /sas/';
   }
   @Get('/products/:productId')
-  getProduct(@Param() params: any) {
-    return `product ${params.productId}`;
+  getProduct(@Param('productId') productId: string) {
+    return `product ${productId}`;
+  }
+  @Get('categories/:id/products/:productId')
+  getCategory(
+    @Param('productId') productId: string,
+    @Param('id') productId: string,
+  ): string {
+    return `product ${productId}`;
   }
 }
