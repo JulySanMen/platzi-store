@@ -23,9 +23,9 @@ export class AppController {
   }
   @Get('categories/:id/products/:productId')
   getCategory(
-    @Param('productId') productId: string,
-    @Param('id') productId: string,
+    @Param('productId') productId: string, // Este corresponde a ':productId'
+    @Param('id') id: string, // Este corresponde a ':id'
   ): string {
-    return `product ${productId}`;
+    return `Category ${id}, Product ${productId}`;
   }
 }
