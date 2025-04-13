@@ -17,6 +17,7 @@ export class AppController {
   hello() {
     return 'con /sas/';
   }
+  //recibir parametros ;
   @Get('/products/:productId')
   getProduct(@Param('productId') productId: string) {
     return `product ${productId}`;
