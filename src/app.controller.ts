@@ -17,11 +17,18 @@ export class AppController {
   hello() {
     return 'con /sas/';
   }
+
+  //no didamicas primero y dinamicas despues
+  @Get('/products/filter')
+  getProductFilter() {
+    return `soy un filter`;
+  }
   //recibir parametros ;
   @Get('/products/:productId')
   getProduct(@Param('productId') productId: string) {
     return `product ${productId}`;
   }
+  //chocan id
 
   @Get('products')
   getProducts(
