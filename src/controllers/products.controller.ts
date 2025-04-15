@@ -5,12 +5,12 @@ export class ProductsController {
   //no didamicas primero y dinamicas despues
   @Get('filter')
   getProductFilter() {
-    return `soy un filter`;
+    return { message: 'yo soy un filter' };
   }
   //recibir parametros ;
   @Get(':productId')
   getProduct(@Param('productId') productId: string) {
-    return `product ${productId}`;
+    return { message: `product ${productId}` };
   }
   //chocan id
 
