@@ -1,4 +1,4 @@
-import { Controller, Param, Get, Put } from '@nestjs/common';
+import { Controller, Param, Get, Put, Delete } from '@nestjs/common';
 
 @Controller('categories')
 export class CategoriesController {
@@ -9,5 +9,10 @@ export class CategoriesController {
   @Put('id')
   updateCategory(@Param('id') id: string) {
     return { message: `update ${id}` };
+  }
+
+  @Delete(':id')
+  deleteCategory(@Param('id') id: string) {
+    return { message: `delete ${id}` };
   }
 }
