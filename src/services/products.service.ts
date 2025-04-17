@@ -11,7 +11,7 @@ export class ProductsService {
       description: 'bla bla',
       price: 122,
       stock: 12,
-      image: '',
+      image: ' ',
     },
   ];
   findAll() {
