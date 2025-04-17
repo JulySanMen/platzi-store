@@ -9,7 +9,10 @@ import {
   Delete,
   HttpStatus,
   HttpCode,
+  Res,
 } from '@nestjs/common';
+
+import { Response } from '@nestjs/common';
 
 @Controller('products')
 export class ProductsController {
@@ -21,9 +24,10 @@ export class ProductsController {
   //recibir parametros ;
   @Get(':productId')
   @HttpCode(HttpStatus.ACCEPTED)
-  getProduct(@Param('productId') productId: string) {
-    return { message: `product ${productId}` };
-  }
+  getProduct(@Res() response: Response, @Param('productId') productId: string) {
+    response.status(200).send({
+      { message: `product ${productId}` },
+    });
   //chocan id
 
   @Get()
