@@ -25,9 +25,8 @@ export class ProductsController {
   @Get(':productId')
   @HttpCode(HttpStatus.ACCEPTED)
   getProduct(@Res() response: Response, @Param('productId') productId: string) {
-    response.status(200).send({
-      { message: `product ${productId}` },
-    });
+    return { message: `product ${productId}` };
+  }
   //chocan id
 
   @Get()
