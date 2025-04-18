@@ -13,9 +13,12 @@ import {
 } from '@nestjs/common';
 
 import { Response } from '@nestjs/common';
+import { ProductsService } from './../services/products.service';
 
 @Controller('products')
 export class ProductsController {
+  //inyectar
+  constructor(private productService: ProductsService) {}
   //no didamicas primero y dinamicas despues
   @Get('filter')
   getProductFilter() {
@@ -25,7 +28,8 @@ export class ProductsController {
   @Get(':productId')
   @HttpCode(HttpStatus.ACCEPTED)
   getProduct(@Res() response: Response, @Param('productId') productId: string) {
-    return { message: `product ${productId}` };
+    return this.productService.findOne();
+    // return { message: `product ${productId}` };
   }
   //chocan id
 
@@ -35,9 +39,10 @@ export class ProductsController {
     @Query('offset') offset = 0,
     @Query('brand') brand: string,
   ) {
-    return {
-      message: `products limit=> ${limit} offset=> ${offset} brand=> ${brand}`,
-    };
+    //return {
+    //message: `products limit=> ${limit} offset=> ${offset} brand=> ${brand}`,
+    //};
+    return this.productService.findAll();
   }
 
   @Post()
