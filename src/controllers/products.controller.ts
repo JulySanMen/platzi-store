@@ -27,7 +27,7 @@ export class ProductsController {
   //recibir parametros ;
   @Get(':productId')
   @HttpCode(HttpStatus.ACCEPTED)
-  getProduct(@Res() response: Response, @Param('productId') productId: string) {
+  getProduct(@Param('productId') productId: string) {
     return this.productService.findOne(+productId);
     // return { message: `product ${productId}` };
   }
@@ -47,17 +47,15 @@ export class ProductsController {
 
   @Post()
   create(@Body() payload: any) {
-    return {
-      mesage: 'accion de crear',
-      payload,
-    };
+    //return {
+    //mesage: 'accion de crear',
+    // payload,
+    //};
+    return this.productService.create(payload);
   }
   @Put(':id')
   update(@Param('id') id: number, @Body() payload: any) {
-    return {
-      id,
-      payload,
-    };
+    return this.productService.update(id, payload);
   }
 
   @Delete(':id')
