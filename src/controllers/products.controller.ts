@@ -28,7 +28,7 @@ export class ProductsController {
   @Get(':productId')
   @HttpCode(HttpStatus.ACCEPTED)
   getProduct(@Res() response: Response, @Param('productId') productId: string) {
-    return this.productService.findOne();
+    return this.productService.findOne(+productId);
     // return { message: `product ${productId}` };
   }
   //chocan id
